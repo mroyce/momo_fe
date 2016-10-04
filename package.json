@@ -2,7 +2,6 @@
   "name": "momo_fe",
   "version": "0.0.1",
   "description": "MomosList Front End App",
-  "main": "index.hmtl",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +14,10 @@
   "bugs": {
     "url": "https://github.com/mroyce/momo_fe/issues"
   },
-  "homepage": "https://github.com/mroyce/momo_fe#readme"
+  "homepage": "https://github.com/mroyce/momo_fe#readme",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-router": "^2.8.1",
+    "webpack": "^1.13.2"
+  }
 }
