@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "MomosList Front End App",
   "scripts": {
+    "dev": "node_modules/.bin/webpack -d --watch",
+    "build": "node_modules/.bin/webpack -p",
+    "start": "node_modules/.bin/http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +19,16 @@
   },
   "homepage": "https://github.com/mroyce/momo_fe#readme",
   "dependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
     "react": "^15.3.2",
+    "react-dom": "^15.3.2",
     "react-router": "^2.8.1",
     "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0"
   }
 }
