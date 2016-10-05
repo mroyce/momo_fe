@@ -5,3 +5,4 @@ node_modules
 ._*
 bundle.js
 bundle.js.map
+*.swp
