@@ -1,0 +1,87 @@
+@import "colors";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: ~"calc(100% - 64px)";
+    margin: 32px 48px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    background: @lightBlue200;
+    background: -webkit-linear-gradient(@lightBlue200, @lightBlue100) fixed;
+    background: -o-linear-gradient(@lightBlue200, @lightBlue100) fixed;
+    background: -moz-linear-gradient(@lightBlue200, @lightBlue100) fixed;
+    background: linear-gradient(@lightBlue200, @lightBlue100) fixed;
+
+    font: 16px 'Roboto', sans-serif;
+    line-height: 1.5;
+    color: @gray800;
+}
+
+b {
+    color: @gray900;
+}
+
+#react-entry {
+    height: 100%;
+}
+
+.row {
+    height: 100%;
+    .column {
+        height: 100%;
+    }
+    .columns {
+        height: 100%;
+    }
+}
+
+.search-list {
+    height: 100%;
+
+    .listing {
+        display: block;
+
+        .listing-thumbnail-container {
+            width: 20%;
+            display: inline-block;
+        }
+
+        .listing-text-container {
+            margin-left: 16px;
+            width: ~"calc(80% - 16px)";
+            display: inline-block;
+
+            .listing-name {
+                font-size: 24px;
+            }
+
+            .listing-short-description {
+                font-size: 20px;
+                color: @gray700;
+            }
+
+            .listing-author-date {
+                font-size: 12px;
+                color: @gray500;
+            }
+
+            .listing-long-description {
+            }
+        }
+    }
+}
+
+.search-map {
+    height: 40%;
+}
+
+.search-filter {
+    height: 60%;
+}
