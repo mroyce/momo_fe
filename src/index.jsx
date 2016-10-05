@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRedirect, IndexRoute, browserHistory } from 'react-router';
 
-import SearchView from './SearchView';
+import SearchView from 'components/SearchView';
 
 
 require('lib/skeleton-less/less/skeleton.less');
