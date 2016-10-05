@@ -6,7 +6,11 @@ class SearchList extends React.Component {
         return (
           <div className="listing">
             <div className="listing-thumbnail-container">
-              <img src={listing.thumbnail} alt={listing.name} className="listing-thumbnail" />
+              <img
+                src={listing.thumbnail}
+                alt={listing.name}
+                className="listing-thumbnail"
+              />
             </div>
             <div className="listing-text-container">
               <div className="listing-name">
@@ -49,7 +53,7 @@ class SearchList extends React.Component {
 
 
 SearchList.propTypes = {
-    listings: React.PropTypes.arrayOf(React.PropTypes.object),
+    listings: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 }
 
 
