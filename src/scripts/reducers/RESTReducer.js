@@ -1,21 +1,34 @@
 import Q from 'q';
 import $ from 'jquery';
 import _ from 'lodash';
+import invariant from 'invariant';
 
-import ActionTypes from '../constants/ActionTypes';
-import ReducerBase from './ReducerBase';
+import ActionTypes from 'constants/ActionTypes';
+import Api from 'constants/Api';
+
+import ReducerBase from 'reducers/ReducerBase';
 
 
 class RESTReducer extends ReducerBase {
-    constructor(url, ...args) {
+    constructor(name, endpoint, actions, ...args) {
         super(...args);
 
-        this._url = url;
+        this._name = name;
+        this._endpoint = endpoint;
+        this._actions = actions;
+    }
+    get url() {
+        invariant(
+            this._endpoint,
+            '%s must specify this._endpoint.',
+            this._name,
+        );
+        return `${Api.url}${this._endpoint}`;
     }
     buildUrl(...queryArgs) {
         const queryParams = $.param(queryArgs);
         if (queryArgs.length) {
-            return `${this._url}?${queryParams}`;
+            return `${this.url}?${queryParams}`;
         }
         return this._url;
     }
@@ -54,29 +67,38 @@ class RESTReducer extends ReducerBase {
             return resource;
         }));
     }
-    update(...queryArgs) {
+    update(data, ...queryArgs) {
         const url = this.buildUrl(queryArgs);
     }
     destroy(...queryArgs) {
         const url = this.buildUrl(queryArgs);
     }
+    get initialState() {
+        return {
+            asdf: {}
+        };
+    }
     get reducer() {
-        return (state, action) => {
+        return (state = this.initialState, action) => {
             switch (action.type) {
-                case ActionTypes.REST_GET:
-                    console.log(this.query());
+                case this._actions.GET:
+                    this.query().then(resources => {
+                        return _.assign({}, state, { asdf: resources });
+                    });
                     break;
-                case ActionTypes.REST_POST:
-                    console.log(this.create());
+                case this._actions.POST:
+                    this.create().then(resource => {
+                        return _.assign({}, state, { asdf: resource });
+                    });
                     break;
-                case ActionTypes.REST_PUT:
-                    console.log(this.update());
+                case this._actions.PUT:
+                    this.update();
                     break;
-                case ActionTypes.REST_DELETE:
-                    console.log(this.destroy());
+                case this._actions.DELETE:
+                    this.destroy();
                     break;
                 default:
-                    // do nothing
+                    return state;
             }
         };
     }
