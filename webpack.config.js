@@ -3,14 +3,10 @@ var path = require('path');
 
 
 var BUILD_DIR = __dirname;
-
 var NODE_MODULES = path.resolve(__dirname, 'node_modules/');
-
-var STYLES_DIR = path.resolve(__dirname, 'styles/');
-
 var SRC_DIR = path.resolve(__dirname, 'src/');
-var COMPONENTS_DIR = path.resolve(SRC_DIR, 'components/');
-var ACTIONS_DIR = path.resolve(SRC_DIR, 'actions/');
+var SCRIPTS_DIR = path.resolve(SRC_DIR, 'scripts/');
+var STYLES_DIR = path.resolve(SRC_DIR, 'styles/');
 
 
 var config = {
@@ -39,10 +35,12 @@ var config = {
         extensions: ['', '.js', '.jsx'],
         alias: {
             lib: NODE_MODULES,
-            styles: STYLES_DIR,
             src: SRC_DIR,
-            components: COMPONENTS_DIR,
-            actions: ACTIONS_DIR,
+            styles: path.resolve(SRC_DIR, 'styles/'),
+            components: path.resolve(SCRIPTS_DIR, 'components/'),
+            actions: path.resolve(SCRIPTS_DIR, 'actions/'),
+            reducers: path.resolve(SCRIPTS_DIR, 'reducers/'),
+            constants: path.resolve(SCRIPTS_DIR, 'constants/'),
         },
     },
 };
