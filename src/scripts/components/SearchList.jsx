@@ -4,7 +4,7 @@ import React from 'react';
 class SearchList extends React.Component {
     renderListing(listing) {
         return (
-          <div className="listing">
+          <div className="listing" key={listing.id}>
             <div className="listing-thumbnail-container">
               <img
                 src={listing.thumbnail}
@@ -31,7 +31,7 @@ class SearchList extends React.Component {
     }
     get title() {
         return (
-          <h4>
+          <h4 className="search-list-title">
             There are <b>{this.props.listings.length}</b> events around you!
           </h4>
         );
