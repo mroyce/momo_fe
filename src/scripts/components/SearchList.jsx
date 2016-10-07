@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 
 class SearchList extends React.Component {
@@ -20,7 +21,7 @@ class SearchList extends React.Component {
                 <span>{listing.short_description}</span>
               </div>
               <div className="listing-author-date">
-                <span>Posted by {listing.author} on 6/20/1994</span>
+                <span>Posted by {listing.author} on {listing.created_at}</span>
               </div>
               <div className="listing-long-description">
                 <span>{listing.long_description}</span>
@@ -42,6 +43,7 @@ class SearchList extends React.Component {
         );
     }
     render() {
+        console.log(this.state);
         return (
           <div className="search-list">
             {this.title}
@@ -57,4 +59,6 @@ SearchList.propTypes = {
 }
 
 
-export default SearchList;
+export default connect(
+    state => ({ searchFilters: state.searchFilters })
+)(SearchList);

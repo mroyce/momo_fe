@@ -24,10 +24,20 @@ var config = {
                 loaders: ['babel'],
             },
             {
+                test: /\.scss$/,
+                include: [STYLES_DIR, NODE_MODULES],
+                loaders: ['style', 'css', 'sass'],
+            },
+            {
                 test: /\.less$/,
                 include: [STYLES_DIR, NODE_MODULES],
                 loaders: ['style', 'css', 'less'],
             },
+            {
+                test: /\.css$/,
+                include: [STYLES_DIR, NODE_MODULES],
+                loaders: ['style', 'css'],
+            }
         ]
     },
     resolve: {
