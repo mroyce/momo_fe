@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStore } from 'redux';
 
-import Header from 'components/Header';
+import SearchHeader from 'components/SearchHeader';
 import SearchList from 'components/SearchList';
 import SearchMap from 'components/SearchMap';
 import SearchFilter from 'components/SearchFilter';
@@ -51,7 +51,7 @@ class SearchView extends React.Component {
     render() {
         return (
           <div className="row">
-            <Header />
+            <SearchHeader />
             <div className="search-view-content">
               <section className="seven columns">
                 <SearchList

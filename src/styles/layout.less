@@ -37,6 +37,15 @@ header {
     background: -o-linear-gradient(@gray300, @gray200, @gray100, @gray50, @white, @gray50, @gray100, @gray200);
     background: -moz-linear-gradient(@gray300, @gray200, @gray100, @gray50, @white, @gray50, @gray100, @gray200);
     background: linear-gradient(@gray300, @gray200, @gray100, @gray50, @white, @gray50, @gray100, @gray200) ;
+
+    .row {
+        .left {
+            border-right: 1px solid @gray400;
+        }
+        .right {
+            border-left: 1px solid @gray400;
+        }
+    }
 }
 
 b {
@@ -59,7 +68,7 @@ b {
 
 
 .search-view-content {
-    height: 100%;
+    height: ~"calc(100% - 61px)"; // header.height + header.border-bottom + some weird extra padding
     position: relative;
     top: 60px;
     .search-list {
@@ -87,7 +96,7 @@ b {
 
             .listing-text-container {
                 margin-left: 16px;
-                width: ~"calc(100% - 196px)"; // .listing-thumbnail-container.width - .listing-text-container.margin-left
+                width: ~"calc(100% - 196px)"; // .listing-thumbnail-container.width + .listing-text-container.margin-left
                 display: inline-block;
                 vertical-align: text-top;
                 position: relative;
@@ -122,7 +131,7 @@ b {
 }
 
 .search-filter {
-    height: ~"calc(60% - 60px)"; // header.height
+    height: ~"calc(60% - 16px)"; // .search-filter.padding
     background: @bluegray50;
     padding: 16px 16px 0 16px;
 }
